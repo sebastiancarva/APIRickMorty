@@ -1,0 +1,22 @@
+<div class="contenedor">
+  <app-search></app-search>
+  
+
+  <div class="universo">
+    <div class="flex-container">
+        <div *ngFor="let item of person " class="card">
+            <img src={{item.image}} alt="imagen">
+            <hr>
+            <h3 class="name">{{item.name}}</h3>
+            <p class="especies">Especie: {{item.species}}</p>
+            <button class="cool-button" [routerLink]="['/detail',item.id]" >Detalles</button>
+        </div><br>
+    </div>
+  </div>
+  <div class="fixed-bottom" ><app-footer></app-footer></div>
+</div>
+
+
+
+
+

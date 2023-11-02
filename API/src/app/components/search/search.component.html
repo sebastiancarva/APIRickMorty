@@ -1,0 +1,46 @@
+<div class="container">
+    <input type="text" (input)="search($event)" class="search">
+    <select (change)="searchEsp($event)">
+      <option value="">Todas las opciones</option>
+      <option value="human">Humano</option>
+      <option value="alien">Alien</option>
+    </select>
+</div>
+
+
+<div class="results-container">
+  <ng-container *ngIf="noResultsFoundName; else searchResults">
+    <p>No se encontraron resultados.</p>
+  </ng-container>
+  <ng-template #searchResults>
+
+<div class="universo">
+  <div class="flex-container" *ngFor="let character of charactersByName$ | async" class="card">
+      <div >
+          <img src={{character.image}} alt="imagen">
+          <hr>
+          <h3 class="name">{{character.name}}</h3>
+          <p class="especies">Especie: {{character.species}}</p>
+          <button class="cool-button" [routerLink]="['/detail',character.id]" >Detalles</button>
+      </div><br>
+  </div>
+  <hr>
+</div>
+<div class="universo">
+  <div class="flex-container" *ngFor="let character of charactersBySpecies$ | async" class="card">
+      <div >
+          <img src={{character.image}} alt="imagen">
+          <hr>
+          <h3 class="name">{{character.name}}</h3>
+          <p class="especies">Especie: {{character.species}}</p>
+          <button class="cool-button" [routerLink]="['/detail',character.id]" >Detalles</button>
+      </div><br>
+  </div>
+  <hr>
+</div>
+  </ng-template>
+</div>
+
+
+
+

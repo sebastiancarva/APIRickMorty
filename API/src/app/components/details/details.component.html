@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div class="card" *ngIf="character">
+    <img src="{{character.image}}" alt="Nombre del Personaje" class="card-image">
+    <div class="card-details">
+      <h3 class="card-title">Nombre del Personaje : {{ character.name }}</h3>
+      <p class="card-info">Especie: {{ character.species }}</p>
+      <p class="card-info">Estado: {{ character.status }}</p>
+      <p class="card-info">Genero: {{ character.gender }}</p>
+      <p class="card-info">Mundo: {{ character.origin.name }}</p>
+      <p class="card-info">Locación: {{ character.location.name }}</p>
+      <div class="regrets">
+        <button class="back-button" (click)="regrets()">
+          <span class="arrow-left"></span> Regresar
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
